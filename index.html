@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hope for Sri Lanka | Disaster Relief</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -41,16 +40,16 @@
                 
                 <!-- Bank Transfer Button -->
                 <button class="btn btn-bank" onclick="openModal()">
-                    <i class="fas fa-university"></i> Direct Bank Transfer
+                    <i class="fas fa-university"></i> Direct Bank Transfer (Gov)
                 </button>
 
-                <!-- Ko-fi / BMC Button (PayPal Support) -->
-                <a href="https://ko-fi.com/YOUR_USERNAME" target="_blank" class="btn btn-kofi">
+                <!-- Ko-fi Button -->
+                <a href="https://ko-fi.com/killer52563" target="_blank" class="btn btn-kofi">
                     <i class="fas fa-coffee"></i> Donate via Ko-fi (PayPal)
                 </a>
                 
-                <!-- PayPal / Other Link -->
-                <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" class="btn btn-paypal">
+                <!-- BMC Button -->
+                <a href="https://www.buymeacoffee.com/killer96" target="_blank" class="btn btn-paypal">
                     <i class="fab fa-paypal"></i> Buy Me a Coffee
                 </a>
             </div>
@@ -59,7 +58,6 @@
             <div class="recent-donors">
                 <h4><i class="fas fa-heart"></i> Recent Heroes</h4>
                 <ul id="donor-list">
-                    <!-- Donors will load here -->
                     <li>Loading donors...</li> 
                 </ul>
             </div>
@@ -70,18 +68,50 @@
     <div id="bankModal" class="modal">
         <div class="modal-content glass-card">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Bank Transfer Details</h2>
-            <div class="bank-info">
-                <p><strong>Bank:</strong> Bank of Ceylon (BOC)</p>
-                <p><strong>Branch:</strong> Colombo Main</p>
-                <p><strong>Name:</strong> Disaster Relief Fund</p>
-                
+            <h2>Official Government Relief Fund</h2>
+            <p class="gov-notice">
+                <i class="fas fa-check-circle"></i> Verified Official Accounts
+            </p>
+
+            <!-- 1. Local Donation Section (LKR) -->
+            <div class="bank-section local">
+                <div class="section-header">
+                    <i class="fas fa-home"></i> 
+                    <span>Local Donations (LKR)</span>
+                </div>
+                <div class="bank-details">
+                    <p><strong>Bank:</strong> Bank of Ceylon (BOC)</p>
+                    <p><strong>Branch:</strong> Taprobane (747)</p>
+                    <p><strong>Name:</strong> Deputy Secretary to Treasury</p>
+                </div>
                 <div class="account-box">
-                    <span id="acc-number">1234 5678 9000</span>
-                    <button class="copy-btn" onclick="copyAccount()"><i class="fas fa-copy"></i> Copy</button>
+                    <span id="acc-local">2026450</span>
+                    <button class="copy-btn" onclick="copyText('acc-local')">
+                        <i class="fas fa-copy"></i>
+                    </button>
                 </div>
             </div>
-            <p class="note">Please send the slip to WhatsApp: 07X XXXXXXX</p>
+
+            <!-- 2. International Donation Section (USD) -->
+            <div class="bank-section foreign">
+                <div class="section-header">
+                    <i class="fas fa-globe"></i> 
+                    <span>International (USD)</span>
+                </div>
+                <div class="bank-details">
+                    <p><strong>Bank:</strong> Deutsche Bank Trust Co. (NY)</p>
+                    <p><strong>Beneficiary:</strong> Central Bank of Sri Lanka</p>
+                    <p><strong>SWIFT:</strong> BKTRUS33XXX</p>
+                </div>
+                <div class="account-box">
+                    <span id="acc-foreign">04015541</span>
+                    <button class="copy-btn" onclick="copyText('acc-foreign')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <p class="note">Please retain your deposit slip as proof.</p>
         </div>
     </div>
 

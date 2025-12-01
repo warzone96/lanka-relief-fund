@@ -1,8 +1,8 @@
-// Configuration (මෙතන අගයන් වෙනස් කරන්න)
-const GOAL_AMOUNT = 1000000; // බලාපොරොත්තු වන සම්පූර්ණ මුදල (රුපියල්)
-let currentRaised = 350500; // දැනට එකතු වී ඇති මුදල (මෙය පසුව Database එකෙන් ගන්න පුළුවන්)
+// Configuration
+const GOAL_AMOUNT = 1000000; 
+let currentRaised = 350500; 
 
-// Dummy Donors Data
+// Dummy Donors
 const donors = [
     { name: "Kasun Perera", amount: 5000 },
     { name: "Anonymous", amount: 2000 },
@@ -10,25 +10,19 @@ const donors = [
     { name: "Gayan & Family", amount: 1000 }
 ];
 
-// 1. Progress Bar Update Function
+// 1. Progress Bar Update
 function updateProgress() {
-    // Format currency (Rs. 350,500)
     document.getElementById('current-amount').innerText = `Rs. ${currentRaised.toLocaleString()}`;
-    
-    // Calculate Percentage
     let percentage = (currentRaised / GOAL_AMOUNT) * 100;
-    if(percentage > 100) percentage = 100; // Limit to 100%
-
-    // Animate Bar
+    if(percentage > 100) percentage = 100;
     document.getElementById('progress-fill').style.width = `${percentage}%`;
     document.getElementById('percent-text').innerText = `${percentage.toFixed(1)}% Funded`;
 }
 
-// 2. Load Donors List
+// 2. Load Donors
 function loadDonors() {
     const list = document.getElementById('donor-list');
-    list.innerHTML = ""; // Clear loading text
-    
+    list.innerHTML = "";
     donors.forEach(donor => {
         const li = document.createElement('li');
         li.innerHTML = `<span>${donor.name}</span> <span class="donor-amount">Rs. ${donor.amount.toLocaleString()}</span>`;
@@ -36,7 +30,7 @@ function loadDonors() {
     });
 }
 
-// 3. Modal Functions (Popup)
+// 3. Modal Functions
 function openModal() {
     document.getElementById('bankModal').style.display = "flex";
 }
@@ -45,7 +39,6 @@ function closeModal() {
     document.getElementById('bankModal').style.display = "none";
 }
 
-// Close modal if clicked outside
 window.onclick = function(event) {
     const modal = document.getElementById('bankModal');
     if (event.target == modal) {
@@ -53,17 +46,17 @@ window.onclick = function(event) {
     }
 }
 
-// 4. Copy Account Number
-function copyAccount() {
-    const accNum = document.getElementById("acc-number").innerText.replace(/\s/g, ''); // Remove spaces
-    navigator.clipboard.writeText(accNum).then(() => {
-        alert("Account Number Copied!");
+// 4. Universal Copy Function
+function copyText(elementId) {
+    const textToCopy = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        alert("Copied: " + textToCopy);
     }).catch(err => {
         console.error('Failed to copy: ', err);
     });
 }
 
-// Run on load
+// Init
 window.onload = () => {
     updateProgress();
     loadDonors();

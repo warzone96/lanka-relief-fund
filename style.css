@@ -4,7 +4,6 @@
     --primary: #ff4757;
     --secondary: #2ed573;
     --dark: #2f3542;
-    --glass: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
 }
 
@@ -19,23 +18,16 @@ body {
     color: white;
 }
 
-/* Dark Overlay for better text visibility */
 .background-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: -1;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); z-index: -1;
 }
 
-.container {
-    width: 100%;
-    max-width: 480px;
-    padding: 20px;
-}
+.container { width: 100%; max-width: 480px; padding: 20px; }
 
-/* Glassmorphism Card Style */
+/* Glassmorphism Card */
 .glass-card {
-    background: rgba(20, 20, 20, 0.6); /* Darker glass */
+    background: rgba(20, 20, 20, 0.7);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
@@ -52,12 +44,8 @@ body {
 /* Progress Bar */
 .progress-section { margin-bottom: 30px; }
 .progress-info { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; }
-.progress-bar-bg {
-    width: 100%; height: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;
-}
-.progress-bar-fill {
-    height: 100%; background: linear-gradient(90deg, #ff6b6b, #ff4757); width: 0%; border-radius: 10px; transition: width 1.5s ease-in-out;
-}
+.progress-bar-bg { width: 100%; height: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: linear-gradient(90deg, #ff6b6b, #ff4757); width: 0%; border-radius: 10px; transition: width 1.5s ease-in-out; }
 .percent-text { text-align: right; font-size: 0.85rem; margin-top: 5px; color: #aaa; }
 
 /* Buttons */
@@ -79,18 +67,32 @@ body {
 .recent-donors li { font-size: 0.9rem; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
 .donor-amount { color: var(--secondary); font-weight: bold; }
 
-/* Modal (Popup) */
+/* Modal & Bank Details */
 .modal {
     display: none; position: fixed; z-index: 100;
     left: 0; top: 0; width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.85);
     align-items: center; justify-content: center;
 }
-.modal-content { width: 90%; max-width: 400px; position: relative; text-align: center; background: #1e272e; }
+.modal-content { width: 90%; max-width: 420px; position: relative; text-align: center; background: #1e272e; }
 .close { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
-.account-box {
-    background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px;
-    display: flex; justify-content: space-between; align-items: center; margin-top: 15px;
+
+.gov-notice {
+    color: #2ed573; font-size: 0.9rem; margin-bottom: 20px;
+    background: rgba(46, 213, 115, 0.1); padding: 8px; border-radius: 50px; display: inline-block;
 }
+.bank-section {
+    background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 15px;
+    margin-bottom: 15px; text-align: left; border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: bold; color: #ffdd59; }
+.bank-details p { font-size: 0.85rem; color: #ddd; margin-bottom: 4px; line-height: 1.4; }
+.account-box {
+    background: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 8px;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.account-box span { font-family: 'Courier New', monospace; font-size: 1.1rem; font-weight: bold; letter-spacing: 1px; }
 .copy-btn { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
 .copy-btn:active { background: white; color: black; }
+.note { font-size: 0.8rem; color: #aaa; margin-top: 10px; }
