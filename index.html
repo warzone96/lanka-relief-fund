@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Sri Lanka | Disaster Relief</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="container">
+        <!-- Main Glass Card -->
+        <div class="glass-card main-card">
+            <div class="header">
+                <span class="tag">Emergency Relief</span>
+                <h1>Rebuild Sri Lanka</h1>
+                <p class="description">
+                    ආපදා තත්ත්වය හේතුවෙන් අවතැන් වූවන්ට සහන සැලසීමට අප හා එක්වන්න. Your donation brings hope.
+                </p>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span class="raised">Raised: <span id="current-amount">Rs. 0</span></span>
+                    <span class="goal">Goal: Rs. 1,000,000</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+                <p class="percent-text" id="percent-text">0% Funded</p>
+            </div>
+
+            <!-- Payment Buttons -->
+            <div class="payment-methods">
+                <h3>Select Donation Method</h3>
+                
+                <!-- Bank Transfer Button -->
+                <button class="btn btn-bank" onclick="openModal()">
+                    <i class="fas fa-university"></i> Direct Bank Transfer
+                </button>
+
+                <!-- Ko-fi / BMC Button (PayPal Support) -->
+                <a href="https://ko-fi.com/YOUR_USERNAME" target="_blank" class="btn btn-kofi">
+                    <i class="fas fa-coffee"></i> Donate via Ko-fi (PayPal)
+                </a>
+                
+                <!-- PayPal / Other Link -->
+                <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" class="btn btn-paypal">
+                    <i class="fab fa-paypal"></i> Buy Me a Coffee
+                </a>
+            </div>
+
+            <!-- Recent Donors List -->
+            <div class="recent-donors">
+                <h4><i class="fas fa-heart"></i> Recent Heroes</h4>
+                <ul id="donor-list">
+                    <!-- Donors will load here -->
+                    <li>Loading donors...</li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bank Details Modal (Popup) -->
+    <div id="bankModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Bank Transfer Details</h2>
+            <div class="bank-info">
+                <p><strong>Bank:</strong> Bank of Ceylon (BOC)</p>
+                <p><strong>Branch:</strong> Colombo Main</p>
+                <p><strong>Name:</strong> Disaster Relief Fund</p>
+                
+                <div class="account-box">
+                    <span id="acc-number">1234 5678 9000</span>
+                    <button class="copy-btn" onclick="copyAccount()"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+            </div>
+            <p class="note">Please send the slip to WhatsApp: 07X XXXXXXX</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

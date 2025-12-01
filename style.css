@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary: #ff4757;
+    --secondary: #2ed573;
+    --dark: #2f3542;
+    --glass: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://images.unsplash.com/photo-1542202229-7d93c33f5d07?q=80&w=1600') no-repeat center center/cover;
+    color: white;
+}
+
+/* Dark Overlay for better text visibility */
+.background-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+    background: rgba(20, 20, 20, 0.6); /* Darker glass */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.header { text-align: center; margin-bottom: 25px; }
+.tag { background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+.header h1 { margin-top: 10px; font-size: 2rem; }
+.description { color: #ddd; font-size: 0.9rem; margin-top: 10px; }
+
+/* Progress Bar */
+.progress-section { margin-bottom: 30px; }
+.progress-info { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; }
+.progress-bar-bg {
+    width: 100%; height: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;
+}
+.progress-bar-fill {
+    height: 100%; background: linear-gradient(90deg, #ff6b6b, #ff4757); width: 0%; border-radius: 10px; transition: width 1.5s ease-in-out;
+}
+.percent-text { text-align: right; font-size: 0.85rem; margin-top: 5px; color: #aaa; }
+
+/* Buttons */
+.btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 14px; margin-bottom: 12px;
+    border: none; border-radius: 12px;
+    font-size: 1rem; font-weight: 600; cursor: pointer;
+    text-decoration: none; color: white; transition: 0.3s;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.btn-bank { background: linear-gradient(45deg, #3742fa, #5352ed); }
+.btn-kofi { background: linear-gradient(45deg, #00b894, #55efc4); color: #1e272e; }
+.btn-paypal { background: #FFDD00; color: #000; }
+
+/* Donor List */
+.recent-donors h4 { margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
+.recent-donors ul { list-style: none; max-height: 120px; overflow-y: auto; }
+.recent-donors li { font-size: 0.9rem; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
+.donor-amount { color: var(--secondary); font-weight: bold; }
+
+/* Modal (Popup) */
+.modal {
+    display: none; position: fixed; z-index: 100;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    align-items: center; justify-content: center;
+}
+.modal-content { width: 90%; max-width: 400px; position: relative; text-align: center; background: #1e272e; }
+.close { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
+.account-box {
+    background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px;
+    display: flex; justify-content: space-between; align-items: center; margin-top: 15px;
+}
+.copy-btn { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+.copy-btn:active { background: white; color: black; }
